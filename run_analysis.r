@@ -73,44 +73,6 @@ data_set_mean_sd <- data_set[ ,mean_sd_index, with=FALSE ]
 
 ############################################################
 
-# ATTACH ACTIVITY LABELS TO THE COLUNM  --OLD  (WRONG)
-
-#read the y_train.txt file. This file holds the mapping between 
-#activity labels and the columns of the train and set data.
-#The y_train file of either train or test may be used.
-#WHY? This file has 7352 mappings, however they all map to 6 unique 
-#values, and there are 6 activites.  So, I am assuming this 
-#file holds the activity mappings.
-#Based on this assumption, the row# in the y_train file corresponds 
-#to the column number in the train/test data file.
-setwd(wd_train)
-labels_to_column_map <- fread("y_train.txt")
-
-#read the activity labels (there are 6 distinct activities)
-setwd(wd_features)
-activity_labels <- fread("activity_labels.txt")
-
-#subset the activity labels for mean and standard deviation coulmns
-a <- labels_to_column_map[features_mean_sd$V1,1]
-labels_mean_sd <- activity_labels[a$V1,2]
-
-#Attach activity labels to the mean/sd column names
-library(dplyr)
-f1 <- mutate(f, V2=paste(labels_mean_sd$V2, V2, sep="_"))
-
-#Associate the [activity names + mean/sd colunm names] combination
-#to each column in the mean/sd data table 
-
-colnames(data_set_mean_sd) <- f1$V2
-
-#####################################################################
-
-#LABEL THE DATA SET WITH DESCRIPTIVE VARIABLE NAMES
-
-colnames(data_set_mean_sd) <- features_mean_sd$V2
-
-#####################################################################
-
 # MERGE ACTIVITY NAMES TO EACH OBSERVATION
 
 #read the y_train.txt file. Activities for the train data set
