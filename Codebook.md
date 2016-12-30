@@ -40,7 +40,7 @@ or from the Current working directory set up in the R Console.
 * project out the mean_sd_index features from data_set, and place the data into data_set_mean_sd. (10299x79)
 * --
 * label the data_set_mean_sd with the column names in features_mean_sd. Gives the descriptive feature names for the data. (10299x79)
-*
+* --
 * read the y_train.txt, y_test.txt files to get the activity for each observation. (7352x1) and (2947x1)
 * merge these data sets using rbind, to give a combimed "activity" data frame. (10299x1)
 * read the activity_label.txt file to get the 6 descriptive activity labels, store in activity_labels data frame. (6x2)
