@@ -175,7 +175,7 @@ modelAccuracy
     ## DT        0.7369584
     ## GAM STACK 0.4769754
 
-The Random Forest Model, modelRF, is selected because it has the lowest out-of-sample error, less than 1%, i.e., it had the highest accuracy of over 99%, as shown above.
+The Random Forest Model, modelRF, is selected because it has the lowest out-of-sample classification error, less than 1%, i.e., it had the highest accuracy of over 99%, as shown above.
 
 PREDICT RESULTS
 ===============
