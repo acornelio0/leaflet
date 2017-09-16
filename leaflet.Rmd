@@ -1,0 +1,25 @@
+---
+title: 'Week2: R Markdown and Leaflet'
+author: "Holmdel, New Jersey"
+date: "September 16, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, echo=FALSE}
+library(leaflet)
+holmdelLatLng <- data.frame(
+  lat = c(40.364462, 40.392664, 40.348274, 40.390480),
+  lng = c(-74.167176, -74.176037, -74.187811, -74.184579)
+)
+holmdelSites <- c("<a href='http://bell.works'>Bell Works</a>",
+                  "<a href='http://pncbankartscenter.org'>PNC Arts Center</a>",
+                  "<a href='https://www.vonage.com'>Vonage</a>",
+                  "<a href='https://www.sciencefriday.com/articles/the-antenna-that-detected-the-big-bang'>Horn Antenna</a>"
+)
+holmdelLatLng %>% leaflet()  %>% addTiles() %>% addMarkers(popup= holmdelSites) 
+```
